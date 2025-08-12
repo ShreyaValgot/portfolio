@@ -1,58 +1,87 @@
+// app/components/ProjectCard.jsx
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
 export default function ProjectCard({
-  tag = "iOS",
-  title,
-  blurb,
-  role = "",             // NEW
-  tags = [],             // NEW: array of short strings (max 3 is ideal)
-  duration = "",
-  context = "",
-  href = "#",
+  // top-left badge
+  badge = "iOS", // "iOS" | "Web" | "Research"
+
+  // content
+  role,                     // e.g., "UX/UI Designer & Researcher"
+  title,                    // e.g., "AccessMuse – Inclusive Museum App"
+  blurb,                    // short two-line description
+  tags = [],                // up to ~4 tags; pass [] to hide row
+
+  // routing + media
+  href = "#",               // project link
+  img = "/accessmuse-cover.png", // banner image (in /public)
+  imgAlt = "",
+
+  // layout knobs
+  imgHeight = 320,          // banner height in px (try 360–420 if you want more image)
 }) {
   return (
-    <a
-      href={href}
-      className="group block rounded-2xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-[#C6D7BC]"
+    <article
+      className="
+        group rounded-3xl border border-slate-200 bg-white overflow-hidden
+        shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-2
+      "
     >
-      {/* Taller preview area for mockups */}
-      <div className="relative h-64 bg-slate-50 flex items-center justify-center">
-        <span className="absolute left-4 top-4 inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-white/70 backdrop-blur ring-1 ring-slate-200 text-slate-700">
-          {tag}
+      {/* Banner image (full width) */}
+      <div className="relative w-full" style={{ height: imgHeight }}>
+        <Image
+          src={img}
+          alt={imgAlt || title}
+          fill
+          priority={false}
+          sizes="(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
+          className="object-cover"
+        />
+        <span
+          className="
+            absolute left-4 top-4 inline-flex items-center px-3 py-1 text-xs font-medium
+            rounded-full bg-white/90 ring-1 ring-slate-200 text-slate-700
+          "
+        >
+          {badge}
         </span>
 
-        {/* Drop your phone/web screenshots here later */}
-        <div className="flex items-center justify-center w-20 h-20 rounded-2xl bg-white ring-1 ring-slate-200 text-slate-400">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <rect x="5" y="4" width="14" height="16" rx="3" stroke="currentColor" strokeWidth="1.6"/>
-            <circle cx="12" cy="19" r="1.2" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <p className="absolute inset-x-0 bottom-4 text-center text-slate-400 text-sm">
-          Project Preview
-        </p>
+        {/* Make the whole banner clickable */}
+        <Link href={href} className="absolute inset-0" aria-label={title} />
       </div>
 
-      <div className="p-6">
-        {/* Role (optional) */}
+      {/* Body */}
+      <div className="p-6 sm:p-7">
         {role && (
           <p className="text-sm text-slate-500 mb-2">{role}</p>
         )}
 
-        <h3 className="text-xl font-semibold text-slate-900 group-hover:text-[#437029]">
-          {title}
-        </h3>
+        <Link href={href} className="block">
+          <h3
+            className="
+              text-xl sm:text-2xl font-semibold text-[#1f2937]
+              group-hover:text-[#437029] transition-colors
+            "
+          >
+            {title}
+          </h3>
+        </Link>
 
-        <p className="mt-3 text-slate-600 text-[15px] leading-7">
-          {blurb}
-        </p>
+        {blurb && (
+          <p className="mt-3 text-[15px] leading-7 text-slate-600">
+            {blurb}
+          </p>
+        )}
 
-        {/* Tiny tag chips (keep to 2–3) */}
-        {tags?.length > 0 && (
+        {/* Optional tags row */}
+        {tags.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
-            {tags.slice(0, 3).map((t, i) => (
+            {tags.slice(0, 4).map((t, i) => (
               <span
                 key={i}
-                className="inline-flex items-center rounded-full bg-slate-50 ring-1 ring-slate-200 px-2.5 py-1 text-xs text-slate-700"
+                className="inline-flex items-center text-xs font-medium px-3 py-1 rounded-full bg-slate-50 ring-1 ring-slate-200 text-slate-700"
               >
                 {t}
               </span>
@@ -60,33 +89,16 @@ export default function ProjectCard({
           </div>
         )}
 
-        {/* Meta row */}
-        <div className="mt-6 flex items-center gap-6 text-slate-500 text-sm">
-          {duration && (
-            <span className="inline-flex items-center gap-1">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6"/>
-                <path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-              </svg>
-              {duration}
-            </span>
-          )}
-          {context && (
-            <span className="inline-flex items-center gap-1">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M4 6h16M4 12h16M4 18h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-              </svg>
-              {context}
-            </span>
-          )}
-          <span className="ml-auto text-[#437029] inline-flex items-center gap-1">
-            View
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-            </svg>
-          </span>
+        {/* Footer: View link only */}
+        <div className="mt-6 flex justify-end">
+          <Link
+            href={href}
+            className="inline-flex items-center gap-1 text-[#437029] hover:text-[#2f511c] font-medium"
+          >
+            View <span aria-hidden>→</span>
+          </Link>
         </div>
       </div>
-    </a>
+    </article>
   );
 }

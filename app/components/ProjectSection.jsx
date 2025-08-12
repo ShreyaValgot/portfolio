@@ -1,87 +1,90 @@
 "use client";
+
 import { useState } from "react";
 import ProjectFilters from "./ProjectFilters";
 import ProjectCard from "./ProjectCard";
 
-const ALL = [
+// ---- 5 projects ----
+const PROJECTS = [
   {
-    tag: "iOS",
+    badge: "iOS",
+    role: "UX/UI Designer | UX Researcher",
     title: "AccessMuse – Inclusive Museum App",
-    role: "UX Researcher & Product Designer",
     blurb:
-      "Wayfinding, quiet rooms & alternative content to support diverse needs. WCAG-aligned flows and testing.",
-    tags: ["Accessibility", "Inclusive Design", "UX Research"],
-    duration: "3 months",
-    context: "Case Study",
-    href: "#",
+      "Inclusive museum app with interactive indoor maps and customizable digital exhibit booklets for real-time navigation support.",
+    tags: ["WCAG 2.2", "Inclusive Design", "UI Design", "User Research"],
+    href: "/projects/accessmuse",
+    img: "/accessmuse-cover.png",
+    imgHeight: 340,
   },
   {
-    tag: "iOS",
+    badge: "iOS",
+    role: "UX Design Lead | Technology Feasibility Lead",
     title: "Arigato – AR Earthquake Safety",
-    role: "UX Design Lead",
     blurb:
-      "AR guidance for ‘Drop, Cover, Hold’. A/B tests improved clarity and recall; verified technical feasibility.",
-    tags: ["AR", "A/B Testing", "Emergency UX"],
-    duration: "3 months",
-    context: "Case Study",
-    href: "#",
+     "Real-time AR guidance that alerts tourists before an earthquake hits and provides fast, visual safety instructions — prototyped for in an indoor setting with Drop, Cover, Hold as the core protocol.",
+    tags: ["Augmented Reality", "UX Research", "A/B Testing"],
+    href: "/projects/arigato",
+    img: "/arigato-cover.png",
+    imgHeight: 340,
   },
   {
-    tag: "Web",
-    title: "KOI – Material 3 E-commerce",
+    badge: "Web",
     role: "UI Designer",
+    title: "KOI – Material 3 E-commerce",
     blurb:
-      "Pixel-accurate Material 3 components and atomic design for a cosmetics storefront with accessible patterns.",
-    tags: ["Material 3", "E-commerce", "Atomic Design"],
-    duration: "2 months",
-    context: "Case Study",
-    href: "#",
+      "E-commerce site built with Material 3 atomic components, system-driven patterns, and precise type/color scales.",
+    tags: ["Material 3", "Atomic Design", "E-commerce UI"],
+    href: "/projects/koi",
+    img: "/koi-cover.png",
+    imgHeight: 340,
   },
   {
-    tag: "Research",
-    title: "MedTracks – AI in UX Evaluation",
-    role: "Qual Researcher",
+    badge: "Research",
+    role: "Qualitative UX Researcher",
+    title: "AI in UX Evaluation (MedTracks)",
     blurb:
-      "Compared ChatGPT heuristic reviews to expert feedback; ~70% overlap and ~90% faster triage for teams.",
-    tags: ["AI × UX", "Heuristics", "Qualitative"],
-    duration: "5 months",
-    context: "Research Study",
-    href: "#",
+      "Compared ChatGPT heuristic reviews with expert findings; explored human-AI collaboration in evaluation.",
+    tags: ["AI", "Heuristics", "UX Research"],
+    href: "/projects/medtracks",
+    img: "/medtracks-cover.jpeg",
+    imgHeight: 340,
   },
   {
-    tag: "Research",
+    badge: "Research",
+    role: "Quantitative UX Researcher",
     title: "Haptics in Alarm UX",
-    role: "Quant Researcher",
     blurb:
-      "Within-subject study using SPSS; timing deltas were small, but 60% reported better engagement with haptics.",
-    tags: ["Haptic Feedback", "SPSS", "Human Factors"],
-    duration: "3 months",
-    context: "Research Study",
-    href: "#",
+      "Study on haptic feedback for alarm-setting tasks; SPSS analysis, micro-interactions, behavior insights.",
+    tags: ["SPSS", "Haptics", "Micro-interactions"],
+    href: "/projects/haptics",
+    img: "/haptics-cover.jpeg",
+    imgHeight: 340,
   },
 ];
 
+const FILTER_KEYS = ["All", "iOS", "Web", "Research"];
+
 export default function ProjectSection() {
   const [filter, setFilter] = useState("All");
-  const list = filter === "All" ? ALL : ALL.filter((p) => p.tag === filter);
+  const list = filter === "All" ? PROJECTS : PROJECTS.filter(p => p.badge === filter);
 
   return (
-    <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pt-20 pb-24">
+    <section className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-12 pt-20 pb-28">
       <header className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0f172a]">
           Projects
         </h2>
         <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
-          Work across iOS, Material-3 Web, and research—system-driven and accessible.
+          A snapshot across iOS, Web, and Research — accessible and system-driven.
         </p>
       </header>
 
       <div className="flex justify-center mb-12">
-        <ProjectFilters onChange={setFilter} defaultValue="All" />
+        <ProjectFilters onChange={setFilter} />
       </div>
 
-      {/* More breathing room: gap-8 instead of gap-6 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
         {list.map((p, i) => (
           <ProjectCard key={i} {...p} />
         ))}
