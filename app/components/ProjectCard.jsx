@@ -15,7 +15,7 @@ export default function ProjectCard({
   tags = [],                // up to ~4 tags; pass [] to hide row
 
   // routing + media
-  href = "#",               // project link
+  href = "/projects/accessmuse",               // project link
   img = "/accessmuse-cover.png", // banner image (in /public)
   imgAlt = "",
 
