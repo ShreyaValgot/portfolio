@@ -14,7 +14,7 @@ const PROJECTS = [
       "Inclusive museum app with interactive indoor maps and customizable digital exhibit booklets for real-time navigation support.",
     tags: ["WCAG 2.2", "Inclusive Design", "UI Design", "User Research"],
     href: "/projects/accessmuse",
-    img: "/accessmuse-cover.png",
+    img: "/AccessMuse Cover Page.png",
     imgHeight: 340,
   },
   {

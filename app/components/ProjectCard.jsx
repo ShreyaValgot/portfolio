@@ -16,7 +16,7 @@ export default function ProjectCard({
 
   // routing + media
   href = "/projects/accessmuse",               // project link
-  img = "/accessmuse-cover.png", // banner image (in /public)
+  img = "/AccessMuse Cover Page.png", // banner image (in /public)
   imgAlt = "",
 
   // layout knobs

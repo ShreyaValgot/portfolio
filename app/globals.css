@@ -18,3 +18,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.case-img {
+  @apply rounded-[16px] overflow-hidden border border-slate-200/70 shadow-sm bg-white;
+}
