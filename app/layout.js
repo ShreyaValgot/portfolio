@@ -23,12 +23,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Force light color scheme for form controls / default styles */}
         <meta name="color-scheme" content="light" />
-        {/* Optional: set browser UI color (status bar / toolbar) */}
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body>{children}</body>
+      <body className="bg-white text-slate-900">
+        <Navbar />          {/* ⬅️ Navbar is back */}
+        {children}
+        <Footer />          {/* ⬅️ Keep or remove depending on your setup */}
+      </body>
     </html>
   );
 }
