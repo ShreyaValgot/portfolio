@@ -47,13 +47,13 @@ export default function ProjectCard({
         />
 
         {/* Coming soon overlay */}
-{comingSoon && (
-  <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-lg">
-    <span className="bg-white text-slate-900 text-sm font-semibold px-4 py-1 rounded-md shadow">
-      Coming Soon
-    </span>
-  </div>
-)}
+        {comingSoon && (
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-lg">
+            <span className="bg-white text-slate-900 text-sm font-semibold px-4 py-1 rounded-md shadow">
+              Coming Soon
+            </span>
+          </div>
+        )}
 
         <span
           className="
