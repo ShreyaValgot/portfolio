@@ -43,7 +43,7 @@ export default function Hero() {
         <div className="flex md:justify-end">
           <div className="relative w-[360px] h-[360px]"> {/* increase size */}
             <Image
-              src="/HomePageImage.png"
+              src="/home-page-illustration.png"
               alt="Shreya"
               fill
               className="object-contain"  // keeps the full image, no sides cut
