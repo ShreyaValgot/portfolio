@@ -110,7 +110,7 @@ export default function ContactSection() {
           </div>
           <p className="mt-2 text-slate-700 text-sm">Download my latest resume.</p>
           <Link
-            href="/Shreya Valgot — CV — UX UI Designer.pdf" // <- put your file in /public
+            href="/shreya-valgot-uxui-resume.pdf" // <- put your file in /public
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 inline-block text-sm text-[#437029] hover:underline"
