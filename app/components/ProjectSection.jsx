@@ -27,6 +27,7 @@ const PROJECTS = [
     href: "/projects/arigato",
     img: "/arigato-cover.png",
     imgHeight: 340,
+    comingSoon: true,
   },
   {
     badge: "Web",
@@ -38,6 +39,7 @@ const PROJECTS = [
     href: "/projects/koi",
     img: "/koi-cover.png",
     imgHeight: 340,
+    comingSoon: true,
   },
   {
     badge: "Research",
@@ -49,6 +51,7 @@ const PROJECTS = [
     href: "/projects/medtracks",
     img: "/medtracks-cover.jpeg",
     imgHeight: 340,
+    comingSoon: true,
   },
   {
     badge: "Research",
@@ -60,6 +63,7 @@ const PROJECTS = [
     href: "/projects/haptics",
     img: "/haptics-cover.jpeg",
     imgHeight: 340,
+    comingSoon: true,
   },
 ];
 

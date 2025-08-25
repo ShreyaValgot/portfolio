@@ -1,9 +1,13 @@
 // app/projects/accessmuse/page.jsx
+
 import Image from "next/image";
 import Link from "next/link";
-import FramedImage from "../../components/FramedImage";
-import SpoilerCallout from "../../components/SpoilerCallout";
 import { ArrowLeft, Briefcase, Clock, Smartphone } from "lucide-react";
+
+// client components
+import FloatingNav from "./FloatingNav";
+import HashScroll from "./HashScroll"; // optional
+
 
 export const metadata = {
   title: "AccessMuse — Inclusive Museum App | Shreya Valgot",
@@ -17,11 +21,23 @@ const SIENNA_TINT = "rgba(182,62,22,0.08)";
 
 
 
+
+
+
 export default function AccessMusePage() {
   return (
-    <main className="pb-28">
+    <main className="pb-28 lg:pl-[260px]">
+
+    <FloatingNav />
+    <HashScroll />
+
+
+
+
+
+
       {/* ---- HERO (gradient from top, big crisp screens) ---- */}
-      <section
+      <section id="project-overview"
         style={{
           background:
             "linear-gradient(180deg, rgba(182,62,22,0.04) 0%, rgba(182,62,22,0.00) 70%)",
@@ -38,6 +54,7 @@ export default function AccessMusePage() {
             Back to Projects
           </Link>
         </div>
+
 
         {/* Title + Sub */}
         <div className="max-w-[1100px] mx-auto px-6 md:px-10 pt-8">
@@ -98,7 +115,7 @@ export default function AccessMusePage() {
       <div className="mt-10 md:mt-12 h-px bg-slate-200/70 max-w-[1100px] mx-auto" />
 
         {/* ---- FINAL PROTOTYPE ---- */}
-            <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-12">
+            <section id="final-prototype" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-12">
             <h1 className="text-center text-[26px] md:text-[30px] font-semibold text-slate-900">
                 Final Prototype
             </h1>
@@ -121,16 +138,13 @@ export default function AccessMusePage() {
             <div className="mt-12 md:mt-14 h-px bg-slate-200/70 max-w-[1100px] mx-auto" />
 
       {/* ---- DESIGN PROCESS ---- */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-10">
-        <h3 className="text-[22px] md:text-[24px] font-semibold text-slate-900">Design Process</h3>
-        <span className="mt-2 inline-flex items-center gap-2 text-[12px] md:text-[13px] text-slate-600 bg-slate-50 border border-slate-200 rounded-full px-3 py-1">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500" />
-          Discovery stage
-        </span>
+      <section id="user-research" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-10">
+        <h1 className="text-center text-[36px] md:text-[40px] font-semibold text-slate-900">User Research</h1>
+          
       </section>
 
       {/* ---- USER STORIES ---- */}
-      <section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-8 md:pt-10">
+      <section id="user-stories" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-8 md:pt-10">
         <h3 className="text-center text-[28px] md:text-[32px] font-semibold text-slate-900">
           User Stories that Shaped the Design
         </h3>
@@ -589,7 +603,7 @@ export default function AccessMusePage() {
 
 
 {/* Personas Section */}
-<section className="mx-auto max-w-5xl px-4 md:px-6">
+<section id="personas" className="mx-auto max-w-5xl px-4 md:px-6">
   {/* Heading */}
   <h2 className="text-center text-[32px] md:text-[36px] font-semibold text-slate-900">
     Personas
@@ -859,9 +873,9 @@ export default function AccessMusePage() {
 
 {/* ───────── Mid-Fidelity Prototypes (top-aligned; slightly smaller) ───────── */}
 <section id="mid-fidelity" className="mx-auto max-w-7xl px-4 md:px-8 mt-12">
-   <h4 className="text-center text-[22px] md:text-[24px] font-semibold text-slate-900">
+   <h2 className="text-center text-[22px] md:text-[24px] font-semibold text-slate-900">
     Mid-Fidelity Design Screens
-  </h4>
+  </h2>
 
 {/*  <p className="text-center text-gray-600 mt-1 text-[16px] md:text-[17px]">
     Used for Testing
@@ -928,7 +942,16 @@ export default function AccessMusePage() {
     “Learning and applying WCAG guidelines throughout helped shape not only the interface, but also my thinking — shifting my focus toward inclusive, user-first design.”
   </p>
 
+
+
+
   {/* Home screen overview */}
+    <div id="hi-ios" className="scroll-mt-32 md:scroll-mt-40 mt-16">
+      <h2 className="text-[22px] md:text-[24px] font-semibold text-slate-900 text-left">
+        iOS Mobile Screens
+      </h2>
+    </div>
+
   <div className="mt-10">
     <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900 text-left">
       Home Page
@@ -1250,7 +1273,7 @@ export default function AccessMusePage() {
 
 
 {/* ───────── Web Version: Accessible Digital Booklet ───────── */}
-<section id="web-booklet" className="mx-auto max-w-5xl px-4 md:px-8 mt-32 mb-32">
+<section id="hi-web" className="mx-auto max-w-5xl px-4 md:px-8 mt-32 mb-32">
   {/* Heading + description */}
   <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">
     Web Version: Accessible Digital Booklet
@@ -1271,7 +1294,7 @@ export default function AccessMusePage() {
 </section>
 
 {/* ───────── iPad Version: Accessible Digital Booklet ───────── */}
-<section id="ipad-booklet" className="mx-auto max-w-5xl px-4 md:px-8 mt-32">
+<section id="hi-ipad" className="mx-auto max-w-5xl px-4 md:px-8 mt-32">
   <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">
     iPad Version: Interactive Indoor Map
   </h3>
@@ -1437,7 +1460,7 @@ export default function AccessMusePage() {
       This usability testing was conducted using a <span className="font-semibold">mid-fidelity prototype due to time constraints</span>. 
       The goal was to evaluate the effectiveness of key features early in the design process. Based on the feedback received, 
       the <span className="font-semibold">high-fidelity version was later refined and visually polished in Figma </span> 
-       to better address the observed issues and improve overall user experience.
+      to better address the observed issues and improve overall user experience.
     </p>
   </div>
 
@@ -1449,54 +1472,701 @@ export default function AccessMusePage() {
 
 
 
-<section id="quant" className="mx-auto max-w-7xl px-4 md:px-8 mt-16">
-  <h3 className="text-center text-[22px] md:text-[24px] font-semibold text-slate-900">
+
+{/* ───────── Quantitative Analysis ───────── */}
+<section id="quantitative" className="mx-auto max-w-6xl px-4 md:px-8 mt-16">
+  <h3 className="text-center text-[28px] md:text-[32px] font-semibold text-slate-900">
     Quantitative Analysis
   </h3>
+    <p className="mt-1 text-center text-[14px] md:text-[16px] text-slate-700">
+      Numerical measures of usability performance
+    </p>
 
-  <div className="mt-10 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-center">
-    {/* Left copy */}
-    <div>
-      <h4 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+
+  <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+    {/* Left: text */}
+    <div className="max-w-xl md:justify-self-start">
+      <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">
         System Usability Scale (SUS) Results
-      </h4>
+      </h3>
 
-      <div className="mt-6 space-y-6">
-        <div>
-          <p className="text-[16px] md:text-[18px] font-semibold text-slate-900">
-            Average Score: <span className="font-bold">72</span>
-          </p>
-          <p className="text-slate-600">(generally positive feedback)</p>
-        </div>
+      <div className="mt-6">
+        <p className="text-[16px] md:text-[18px] font-semibold">
+          Average Score: <span className="text-[#FD5858]">72</span>
+        </p>
+        <p className="text-slate-500 mt-1">(generally positive feedback)</p>
+      </div>
 
-        <div>
-          <p className="text-[16px] md:text-[18px] font-semibold text-slate-900">
-            Range: <span className="font-bold">55 – 87.5</span>
-          </p>
-          <p className="text-slate-600">(variations in user experiences)</p>
-        </div>
+      <div className="mt-6">
+        <p className="text-[16px] md:text-[18px] font-semibold">
+          Range: <span style={{ color: "#ffae2bff" }} className="font-semibold">55 – 87.5</span>
+        </p>
+        <p className="text-slate-500 mt-1">(variations in user experiences)</p>
       </div>
     </div>
 
-    {/* Right donut */}
-    <div className="justify-self-center md:justify-self-end">
-      <SUSDonut score={72} size={240} stroke={38} />
-      <p className="mt-3 text-center text-sm text-slate-600">
-        SUS usability score
-      </p>
+    {/* Right: donut + legend (centered) */}
+    <div className="flex flex-col items-center md:justify-self-center">
+      <SUSDonut score={72} size={200} thickness={22} />
+
+      {/* Legend */}
+      <div className="mt-6 flex items-center gap-6 text-sm">
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-3 h-3 rounded-full" style={{ background: "#FD5858" }} />
+          <span>SUS Score</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-3 h-3 rounded-full" style={{ background: "#FFDC7B" }} />
+          <span>Remaining</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
 
+{/* ───────── Divider ───────── */}
+<div className="my-16 h-px bg-slate-200/80" />
+
+{/* ───────── Qualitative Analysis ───────── */}
+<section id="qualitative" className="mx-auto max-w-6xl px-4 md:px-8">
+  <h3 className="text-center text-[28px] md:text-[32px] font-semibold text-slate-900">
+    Qualitative Analysis
+  </h3>
+    <p className="mt-1 text-center text-[14px] md:text-[16px] text-slate-700">
+    Insights gathered from usability testing sessions
+  </p>
+
+<br></br>
+
+  {/* Card */}
+  <div className="mt-6 rounded-2xl border border-slate-200 p-6 md:p-8">
+    {/* Badge title (lighter green, black text) */}
+    <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-3 py-1 text-[13px] font-semibold text-slate-900 ring-1 ring-green-200">
+      <span aria-hidden>✅</span>
+      <span>What Worked Well</span>
+    </div>
+
+    {/* 1. Map Utility Recognised */}
+    <div className="mt-6">
+      <h3 className="text-[16px] md:text-[18px] font-semibold text-slate-900">
+        Map Utility Recognised
+      </h3>
+      <p className="mt-2 text-[14px] md:text-[15px] text-slate-700">
+        The indoor map was widely appreciated for supporting wayfinding and
+        offering helpful space cues.
+      </p>
+
+      <div className="mt-4 space-y-3">
+        <blockquote className="border-l-4 border-green-300 bg-green-50/70 p-3 rounded-lg italic text-slate-800 text-[13px] md:text-[14px] leading-relaxed">
+          “Are you going to design these for actual museums next? You should
+          pitch this idea — I think people would really use it.” —
+          <span className="not-italic font-semibold"> P1</span>
+        </blockquote>
+        <blockquote className="border-l-4 border-green-300 bg-green-50/70 p-3 rounded-lg italic text-slate-800 text-[13px] md:text-[14px] leading-relaxed">
+          “I actually wish I had this… Museums, yes — but I’d love this in a
+          mall as well. They’re huge, and I honestly don’t know where I am or
+          what I’ve missed.” —
+          <span className="not-italic font-semibold"> P3</span>
+        </blockquote>
+      </div>
+    </div>
+
+    {/* 2. Digital Booklet Appreciated for Accessibility */}
+    <div className="mt-8">
+      <h3 className="text-[16px] md:text-[18px] font-semibold text-slate-900">
+        Digital Booklet Appreciated for Accessibility
+      </h3>
+      <p className="mt-2 text-[14px] md:text-[15px] text-slate-700">
+        Participants valued the digital booklet as a low-effort, high-accessibility
+        alternative to physical labels.
+      </p>
+
+      <blockquote className="mt-4 border-l-4 border-green-300 bg-green-50/70 p-3 rounded-lg italic text-slate-800 text-[13px] md:text-[14px] leading-relaxed">
+        “I usually take photos of exhibits I like, but then I forget or
+        accidentally delete them. This booklet would be so helpful.” —
+        <span className="not-italic font-semibold"> P5</span>
+      </blockquote>
+    </div>
+  </div>
+
+
+
+
+<br></br>
+<br></br>
+<br></br>
+
+
+{/* Card */}
+<div className="mt-6 rounded-2xl border border-slate-200 p-6 md:p-8">
+  {/* Badge title */}
+<div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-[13px] font-semibold text-black ring-1 ring-orange-200">
+  <span aria-hidden>⚠️</span>
+  <span>Areas for Improvement</span>
+</div>
+
+  {/* 1. Initial Onboarding */}
+  <div className="mt-6">
+    <h3 className="text-[16px] md:text-[18px] font-semibold text-slate-900">
+      Initial Onboarding and Guidance Lacking
+    </h3>
+    <p className="mt-2 text-slate-700 text-[14px] md:text-[15px] leading-relaxed">
+      Participant 2, who has ADHD (consent obtained), said the app didn’t
+      clearly explain what it was or where to begin. They missed the tooltips
+      and suggested adding features like the Indoor Map and Digital Booklet to
+      the homepage to aid orientation.
+    </p>
+
+    <div className="mt-4 space-y-3">
+      <blockquote className="border-l-4 border-orange-300 bg-orange-50 p-3 md:p-4 italic text-slate-800 rounded-lg text-sm leading-relaxed">
+        “I had to guess what to do first. Nothing told me.” — 
+        <span className="not-italic font-semibold"> P2</span>
+      </blockquote>
+    </div>
+  </div>
+
+  {/* 2. Feature Discoverability */}
+  <div className="mt-8">
+    <h3 className="text-[16px] md:text-[18px] font-semibold text-slate-900">
+      Feature Discoverability
+    </h3>
+    <p className="mt-2 text-slate-700 text-[14px] md:text-[15px] leading-relaxed">
+      Important features like room temperature data were easy to overlook. The
+      swipe-up interaction on the map’s info panel (inspired by Google-style
+      navigation cards) wasn’t intuitive for all users on their first try.
+    </p>
+
+    <blockquote className="mt-4 border-l-4 border-orange-300 bg-orange-50 p-3 md:p-4 italic text-slate-800 rounded-lg text-sm leading-relaxed">
+      “I didn’t notice the temperature until later.” — 
+      <span className="not-italic font-semibold"> P1</span>
+    </blockquote>
+  </div>
+</div>
+
+
+<br></br>
+<br></br>
+
+
+
+
+{/* Key Takeaways Box */}
+<div
+  className="mt-6 rounded-2xl p-6 md:p-8 shadow-sm"
+  style={{ backgroundColor: "rgba(182,62,22,0.08)" }} // SIENNA_TINT
+>
+  <h3 className="text-lg md:text-xl font-semibold text-slate-900">
+    Key Takeaways from Feedback
+  </h3>
+
+  <ul className="mt-3 space-y-2 text-slate-800 list-disc list-inside">
+    <li>
+      Contextual guidance (e.g. short prompts, better labels, or onboarding) is
+      needed to help users get started.
+    </li>
+    <li>
+      Accessibility tools were generally well-received, but their
+      discoverability and clarity can be improved.
+    </li>
+    <li>
+      Participants understood and supported the app’s inclusive purpose, but
+      usability friction prevented a seamless experience.
+    </li>
+  </ul>
+</div>
+
+
+</section>
+
+
+<div className="my-12 border-t border-slate-200" />
+
+
+
+{/* ───────── Design Updates After User Testing ───────── */}
+<section id="post-test-updates" className="mx-auto max-w-7xl px-4 md:px-8 mt-20">
+  <h2 className="text-center text-[28px] md:text-[32px] font-semibold text-slate-900">
+    Design Improvements from User Feedback
+  </h2>
+  <p className="mt-2 text-center text-[14px] md:text-[16px] text-slate-700">
+    Comparisons showing how user feedback and my behavior observations during usability testing shaped the redesign.
+  </p>
 
 
 
 
 
+{/* ===== Pair 1 ===== */}
+<article className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+  <h3 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+    Home Screen — Clarity & Navigation Improvements
+  </h3>
+
+  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {/* Before */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        Before
+      </span>
+      <img
+        src="/home-before.png"
+        alt="Before — unclear hero text, confusing navigation states"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+
+    {/* After */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        After
+      </span>
+      <img
+        src="/home-after.png"
+        alt="After — clearer hero text, refined hierarchy, updated iOS 17 kit"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+  </div>
+
+  {/* What changed & why */}
+  <div className="mt-8">
+    <h6 className="text-[14px] md:text-[15px] font-semibold text-slate-900">
+      What Changed &amp; Why
+    </h6>
+
+    <ul className="mt-3 space-y-3 text-[13px] md:text-[14px] leading-7 text-slate-700 list-disc pl-5">
+      <li>
+        <span className="font-semibold text-slate-900">Problem:</span> Users didn’t understand the app’s purpose or what actions to take. The hero text was generic, timings were hidden under “Book Tickets,” and navigation states were hard to distinguish. Overall feedback: participants felt “lost.”
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Change:</span> Updated hero text to explicitly describe the app as an inclusive digital companion. Moved opening timings above the Book Tickets button. Refined navigation bar states using the primary color for the active tab. Upgraded to iOS 17 kit for consistency.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Reason:</span> Clearer messaging communicates value immediately. Improved hierarchy surfaces critical info (timings before booking). Navigation affordance reduces confusion. Modern UI patterns improve familiarity.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Impact:</span> Participants could quickly understand the app’s purpose and how to get started. Visibility of timings improved task flow, and users reported greater confidence in navigating the app.
+      </li>
+    </ul>
+  </div>
+</article>
 
 
+<br></br>
+
+
+
+{/* ===== Pair 2 ===== */}
+<article className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+  <h3 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+    Room Information & Accessibility Visibility
+  </h3>
+
+  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {/* Before */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        Before
+      </span>
+      <img
+        src="/before-tooltip.png"
+        alt="Before — Users did not realize they needed to swipe up for details"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+
+    {/* After */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        After
+      </span>
+      <img
+        src="/after-tooltip.png"
+        alt="After — Swipe up instruction added for room details"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+  </div>
+
+  {/* What changed & why */}
+  <div className="mt-8">
+    <h6 className="text-[14px] md:text-[15px] font-semibold text-slate-900">
+      What Changed &amp; Why
+    </h6>
+
+    <ul className="mt-3 space-y-3 text-[13px] md:text-[14px] leading-7 text-slate-700 list-disc pl-5">
+      <li>
+        <span className="font-semibold text-slate-900">Problem:</span> Room and accessibility information was hidden in the swipe-up card (similar to Google Maps). Many users didn’t realize they had to swipe up, and missed key details during testing.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Change:</span> Added a clear prompt (“Swipe up to see more details”) at the bottom of the card to guide users.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Reason:</span> Swipe gestures are not always discoverable. Explicit guidance ensures users don’t overlook critical information like directions, accessibility notes, and room details.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Impact:</span> Participants now successfully accessed all room and accessibility details. The change improved task completion rates and reduced confusion around hidden content.
+      </li>
+    </ul>
+  </div>
+</article>
+
+
+
+
+<br></br>
+
+{/* ===== Pair 3 ===== */}
+<article className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+  <h3 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+    Room Information Card – Improved Clarity
+  </h3>
+
+  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {/* Before */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        Before
+      </span>
+      <img
+        src="/card-info-before.png"
+        alt="Before — Limited use of icons, information hidden inside paragraph text"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+
+    {/* After */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        After
+      </span>
+      <img
+        src="/card-info-after.png"
+        alt="After — Color-coded icons and short upfront description added"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+  </div>
+
+  {/* What changed & why */}
+  <div className="mt-8">
+    <h6 className="text-[14px] md:text-[15px] font-semibold text-slate-900">
+      What Changed &amp; Why
+    </h6>
+
+    <ul className="mt-3 space-y-3 text-[13px] md:text-[14px] leading-7 text-slate-700 list-disc pl-5">
+      <li>
+        <span className="font-semibold text-slate-900">Problem:</span> 
+        Only a couple of details (like temperature) were icon-based, while most 
+        information was hidden in a paragraph. This made scanning difficult, and 
+        participants often missed details.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Change:</span> 
+        Introduced consistent icon usage with color to highlight each piece of 
+        information. Added a short one–two line description at the top of the card 
+        before swipe-up content.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Reason:</span> 
+        Icons paired with text improve scan-ability, while upfront context helps 
+        users immediately understand the purpose of the room without hidden steps.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Impact:</span> 
+        Participants were able to quickly identify room functions and accessibility 
+        features. The updated card reduced confusion and improved decision-making 
+        during tasks.
+      </li>
+    </ul>
+  </div>
+</article>
+
+
+
+<br></br>
+
+
+
+  {/* ===== Pair 4 ===== */}
+<article className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+  <h3 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+    Welcome Page — Room Overview & Interactive Features
+  </h3>
+
+  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {/* Before */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        Before
+      </span>
+      <img
+        src="/welcome-page-before.png"
+        alt="Before — Only heading and long description shown, no imagery or interactive features"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+
+    {/* After */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        After
+      </span>
+      <img
+        src="/welcome-page-after.png"
+        alt="After — Added room image, short summary, and list of interactive features"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+  </div>
+
+  {/* What changed & why */}
+  <div className="mt-8">
+    <h6 className="text-[14px] md:text-[15px] font-semibold text-slate-900">
+      What Changed &amp; Why
+    </h6>
+
+    <ul className="mt-3 space-y-3 text-[13px] md:text-[14px] leading-7 text-slate-700 list-disc pl-5">
+      <li>
+        <span className="font-semibold text-slate-900">Problem:</span> The first version of the Welcome Page only showed the room heading and a long descriptive paragraph. Without visuals or feature highlights, users couldn’t immediately understand what the room looked like or what they could do with the booklet.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Change:</span> Added a room image for context, a shorter and more scannable description, and a clear list of interactive features (Audio Narration, BSL Video, Visual Customisation Options).
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Reason:</span> Images provide faster recognition and set user expectations. Listing interactive features upfront makes the booklet’s capabilities clear and prevents users from missing key accessibility options.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Impact:</span> Users reported finding the page more engaging and intuitive. The concise layout improved scannability, while the feature list helped participants anticipate what tools were available from the start.
+      </li>
+    </ul>
+  </div>
+</article>
+
+
+<br></br>
+
+{/* ===== Pair 5 ===== */}
+<article className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+  <h3 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+    Exhibit Detail — Cleaner Layout & iOS-native Controls
+  </h3>
+
+  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {/* Before */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        Before
+      </span>
+      <img
+        src="/customise-before.png"   // update path if different
+        alt="Before — crowded header controls and boxed content"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+
+    {/* After */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        After
+      </span>
+      <img
+        src="/customise-after.png"    // update path if different
+        alt="After — floating Customise button, clear hierarchy and actions"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+  </div>
+
+  {/* What changed & why */}
+  <div className="mt-8">
+    <h6 className="text-[14px] md:text-[15px] font-semibold text-slate-900">
+      What Changed &amp; Why
+    </h6>
+
+    <ul className="mt-3 space-y-3 text-[13px] md:text-[14px] leading-7 text-slate-700 list-disc pl-5">
+      <li>
+        <span className="font-semibold text-slate-900">Problem:</span> The page followed a “Google-style” layout: many controls (customisation, bookmark, etc.) crowded the top, content sat inside heavy boxes, and actions were split around the screen. It felt visually busy and not very iOS-native.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Change:</span> Moved advanced controls into a single floating <em>Customise</em> button (FAB) for progressive disclosure; simplified the canvas (removed heavy card boxes); introduced a clear typographic hierarchy: <strong>Title → Year → Artist/byline → Description</strong>; added large, primary actions (<em>Listen in Audio</em>, <em>Watch in Sign Language</em>) and a room breadcrumb (“Old Masters Gallery”) at the top; added a concise page indicator (“2 of 12”).
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Reason:</span> Reduces cognitive load and visual clutter, keeps primary actions within easy reach, and better matches iOS patterns and motion (FAB, lightweight surfaces, strong type hierarchy). Breadcrumb supports orientation within the booklet.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Impact:</span> Users scan faster and mis-taps drop; participants immediately know where they are (room name) and what they can do next (Audio/BSL). The page looks calmer and more consistent with the rest of the iOS UI.
+      </li>
+    </ul>
+  </div>
+</article>
+
+
+<br></br>
+
+
+{/* ===== Pair 6 ===== */}
+<article className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+  <h3 className="text-[18px] md:text-[20px] font-semibold text-slate-900">
+    Settings Placement & Visual Emphasis
+  </h3>
+
+  <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    {/* Before */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        Before
+      </span>
+      <img
+        src="/cust-card-before.png"   // update path if different
+        alt="Before — settings panel placed at top, no background depth"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+
+    {/* After */}
+    <div>
+      <span className="inline-flex items-center rounded-full bg-slate-50 px-2.5 py-1 text-[12px] font-medium text-slate-600 ring-1 ring-slate-200">
+        After
+      </span>
+      <img
+        src="/cust-card-after.png"    // update path if different
+        alt="After — settings aligned to bottom with subtle grey background for depth"
+        className="mt-3 w-full h-[420px] object-contain"
+      />
+    </div>
+  </div>
+
+  {/* What changed & why */}
+  <div className="mt-8">
+    <h6 className="text-[14px] md:text-[15px] font-semibold text-slate-900">
+      What Changed &amp; Why
+    </h6>
+
+    <ul className="mt-3 space-y-3 text-[13px] md:text-[14px] leading-7 text-slate-700 list-disc pl-5">
+      <li>
+        <span className="font-semibold text-slate-900">Problem:</span> The settings panel appeared at the top, inconsistent with the floating button positioned at the bottom. The lack of visual depth also made the panel blend too much into the page.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Change:</span> Shifted the settings panel to the bottom for consistency with the FAB interaction. Added a subtle grey backdrop to push the panel forward and make it feel more layered.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Reason:</span> Ensures layout consistency and creates visual focus without overloading the user. Enhances depth and separation between content and controls.
+      </li>
+
+      <li>
+        <span className="font-semibold text-slate-900">Impact:</span> Purely a visual enhancement — users faced no issues, but the experience now feels more polished and coherent.
+      </li>
+    </ul>
+  </div>
+</article>
+
+
+
+</section>
+
+
+{/* ───────── Divider ───────── */}
+<div className="my-16 h-px bg-slate-200/80" />
+
+
+
+{/* ===== Final Reflections ===== */}
+
+<section
+  id="reflections"
+  className="scroll-mt-32 md:scroll-mt-40"
+>
+<article
+  className="relative rounded-2xl border shadow-sm p-6 md:p-8"
+  style={{
+      backgroundColor: "#FFF7F3", // warm cream
+      borderColor: "#F5B299",         // soft sienna stroke
+  }}
+>
+  <h3 className="text-[20px] md:text-[22px] font-bold text-slate-900">
+    My Final Reflections about the Project
+  </h3>
+
+  <div className="mt-5 space-y-5 text-[13px] md:text-[14px] leading-7 text-slate-800">
+    <p>
+      This was my first <span className="font-semibold">end-to-end project fully designed by myself</span>,
+      and beginning with accessibility at its core has shaped the foundation of how I approach design.
+      It taught me to focus not only on <span className="font-semibold">what</span> I design, but
+      <span className="font-semibold"> why</span> it matters in people’s real contexts.
+    </p>
+
+    <p>
+      I played multiple roles: an <span className="font-semibold">ethnographic researcher</span>
+      (visiting the museum with a neurodivergent participant to observe navigation, signage and sensory barriers),
+      a <span className="font-semibold">service designer</span> (mapping end-to-end touchpoints across the museum),
+      and a <span className="font-semibold">content designer</span> (making information clear, discoverable and usable).
+      I translated difficult, physical wayfinding into <span className="font-semibold">digitally accessible patterns</span>.
+    </p>
+
+    <p>
+      Most importantly, this work showed me that accessibility isn’t an add-on — it’s
+      <span className="font-semibold"> the process itself</span>. Features like captions or voiceover can seem like
+      conveniences, but for many people they are the <span className="font-semibold">only way in</span>.
+      That reframed my practice: accessibility is now embedded in every step rather than appended at the end.
+    </p>
+
+    <ul className="list-disc pl-5 space-y-2">
+      <li>
+        I now ask first: <em>Who might struggle with this? What could make it easier?</em>
+      </li>
+      <li>
+        I ground decisions in clarity, inclusion and <span className="whitespace-nowrap">real-world</span> usability.
+      </li>
+      <li>
+        Every decision is backed by <span className="font-semibold">user feedback</span> or
+        <span className="font-semibold"> visual consistency</span> (when research is not available).
+      </li>
+      <li>
+        Ethics and user-centricity moved from theory to practice — tested, iterated and proven with real people.
+      </li>
+    </ul>
+
+    <p>
+      This project also reset my assumptions: I once saw tools like voiceover as “speed boosters” for some users;
+      now I recognise they’re essential for many. That shift continues to guide how I scope, design and validate work.
+    </p>
+
+    {/* Mottos callout */}
+    <div
+      className="mt-6 rounded-xl border bg-white p-4 md:p-5"
+      style={{ borderColor: "rgba(182,62,22,0.15)" }}
+    >
+      <h6 className="text-[13px] md:text-[14px] font-semibold text-slate-900">
+        My UX Mottos
+      </h6>
+      <ul className="mt-2 space-y-2 list-decimal pl-5 text-slate-800">
+        <li><em>What is the problem we are solving for the user?</em></li>
+        <li><em>Testing, testing, and more testing.</em></li>
+      </ul>
+    </div>
+  </div>
+</article>
+</section>
 
 
 
@@ -1509,6 +2179,10 @@ export default function AccessMusePage() {
     </main>
   );
 }
+
+
+
+
 
 /* ---------- Helpers ---------- */
 function OverviewItem({ icon, label, value }) {
@@ -1536,63 +2210,67 @@ function OverviewItem({ icon, label, value }) {
 
 
 
-// --- SUS donut (keep this OUTSIDE any component return / JSX) ---
-function SUSDonut({ score = 72, size = 220, stroke = 32, className = "" }) {
-  const clamped = Math.max(0, Math.min(100, score));
-  const r = (size - stroke) / 2;
-  const cx = size / 2;
-  const cy = size / 2;
-  const C = 2 * Math.PI * r;
-  const filled = (clamped / 100) * C;
-  const rest = C - filled;
+
+
+
+function SUSDonut({
+  score = 72,
+  size = 200,
+  thickness = 22,
+  className = "",
+}) {
+  const radius = (size - thickness) / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  // colors
+  const red = "#FD5858";
+  const yellow = "#f9d265ff";
+
+  // we draw a full yellow base ring, then overlay the red arc
+  const dashArray = `${circumference} ${circumference}`;
+  const dashOffset = circumference * (1 - score / 100); // 0 = full, circumference = empty
 
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox={`0 0 ${size} ${size}`}
-      className={className}
-      role="img"
-      aria-label={`SUS score ${clamped}`}
-    >
-      {/* remainder (light) */}
-      <circle
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="none"
-        stroke="#FFD67A"
-        strokeWidth={stroke}
-        strokeDasharray={`${rest} ${C}`}
-        strokeDashoffset={filled}
-        strokeLinecap="butt"
-      />
-      {/* filled (score) */}
-      <circle
-        cx={cx}
-        cy={cy}
-        r={r}
-        fill="none"
-        stroke="#FF6B6B"
-        strokeWidth={stroke}
-        strokeDasharray={`${filled} ${C}`}
-        strokeDashoffset={0}
-        strokeLinecap="butt"
-      />
-      {/* donut hole */}
-      <circle cx={cx} cy={cy} r={r - stroke / 2} fill="#fff" />
-      {/* score label */}
-      <text
-        x="50%"
-        y="50%"
-        textAnchor="middle"
-        dominantBaseline="central"
-        className="fill-slate-900 font-semibold"
-        fontSize={Math.round(size * 0.16)}
-      >
-        {clamped}
-      </text>
-    </svg>
+    <div className={`relative ${className}`} style={{ width: size, height: size }}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <g transform={`rotate(-90 ${size / 2} ${size / 2})`}>
+          {/* Base full ring (remaining) */}
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="none"
+            stroke={yellow}
+            strokeWidth={thickness}
+            strokeLinecap="butt"
+          />
+          {/* Score arc on top */}
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            fill="none"
+            stroke={red}
+            strokeWidth={thickness}
+            strokeDasharray={dashArray}
+            strokeDashoffset={dashOffset}
+            strokeLinecap="butt" /* keeps it continuous with no rounded gap */
+          />
+        </g>
+      </svg>
+
+
+      {/* Score label OUTSIDE, to the right of the ring */}
+      <div className="absolute left-full top-1/2 -translate-y-1/2 ml-3 md:ml-4">
+        <span className="text-[22px] md:text-[28px] font-bold text-slate-900">
+          {score}
+        </span>
+      </div>
+    </div>
   );
 }
+
+
+
+
 

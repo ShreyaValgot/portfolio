@@ -21,7 +21,13 @@ export default function ProjectCard({
 
   // layout knobs
   imgHeight = 320,          // banner height in px (try 360–420 if you want more image)
-}) {
+
+
+   // NEW: coming soon flag
+  comingSoon = false,
+}) 
+
+{
   return (
     <article
       className="
@@ -39,6 +45,16 @@ export default function ProjectCard({
           sizes="(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
           className="object-cover"
         />
+
+        {/* Coming soon overlay */}
+{comingSoon && (
+  <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-lg">
+    <span className="bg-white text-slate-900 text-sm font-semibold px-4 py-1 rounded-md shadow">
+      Coming Soon
+    </span>
+  </div>
+)}
+
         <span
           className="
             absolute left-4 top-4 inline-flex items-center px-3 py-1 text-xs font-medium

@@ -13,18 +13,18 @@ export default function Navbar() {
   useEffect(() => { setOpen(false); }, [pathname]);
 
   const navigation = [
-    { name: "Projects", href: "/", current: pathname === "/" },
-    { name: "About", href: "/about", current: pathname === "/about" },
-    { name: "Contact", href: "/contact", current: pathname === "/contact" },
-  ];
+  { name: "Projects", href: "#projects", current: pathname === "/" },
+  { name: "About", href: "#about", current: pathname === "/about" },
+  { name: "Contact", href: "#contact", current: pathname === "/contact" },
+];
 
-  const linkClasses = (current) =>
+
+  const linkClasses = () =>
     [
       "rounded-[24px] px-6 py-[10px] text-base md:text-lg transition-colors cursor-pointer",
-      current
-        ? "bg-[#437029] text-white hover:bg-[#567E40]"
-        : "text-slate-700 hover:text-[#437029] hover:bg-[#F9FFF5] hover:ring-1 hover:ring-[#C6D7BC]",
+      "text-slate-700 hover:text-[#437029] hover:bg-[#F9FFF5] hover:ring-1 hover:ring-[#C6D7BC]",
     ].join(" ");
+
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">

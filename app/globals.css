@@ -22,3 +22,12 @@ body {
 .case-img {
   @apply rounded-[16px] overflow-hidden border border-slate-200/70 shadow-sm bg-white;
 }
+
+:root { --anchor-offset: 7.5rem; } /* tweak between 7–8.5rem if needed */
+
+@media (min-width: 768px) {
+  :root { --anchor-offset: 8.5rem; }
+}
+
+/* Any element with an id will offset when scrolled to via #hash */
+section[id], div[id], article[id] { scroll-margin-top: var(--anchor-offset); }
