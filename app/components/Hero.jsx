@@ -26,10 +26,17 @@ export default function Hero() {
             real users—research, prototyping, and relentless testing.
           </p>
 
-          <div className="flex items-center gap-2 mt-8 text-slate-600">
-            <span className="size-2 rounded-full bg-[#2AAE4A]" />
-            <span className="text-sm">Actively seeking design opportunities in the UK</span>
-          </div>
+<div className="flex items-start gap-2 mt-8 text-slate-600">
+  {/* green dot */}
+  <span className="mt-1 size-2 rounded-full bg-[#2AAE4A]" />
+  
+  {/* stacked text */}
+  <div className="flex flex-col text-sm">
+    <span>Actively seeking design opportunities in the UK.</span>
+    <span text-slate-500="true">Willing to relocate in UK and available to work remote worldwide.</span>
+  </div>
+</div>
+
         </div>
 
         {/* Right — small photo (bigger than before) */}

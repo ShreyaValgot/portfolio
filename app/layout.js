@@ -19,15 +19,16 @@ export const metadata = {
 };
 
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        <Navbar />
-        <main id="top">{children}</main>
-        <Footer />
-      </body>
+      <head>
+        {/* Force light color scheme for form controls / default styles */}
+        <meta name="color-scheme" content="light" />
+        {/* Optional: set browser UI color (status bar / toolbar) */}
+        <meta name="theme-color" content="#ffffff" />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

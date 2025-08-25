@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
-/* Your existing theme tokens are fine to keep */
+/* ===== Theme tokens (light-only) ===== */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== Base styles ===== */
+html {
+  color-scheme: light;        /* force light mode */
+  scroll-behavior: smooth;    /* smooth scroll for anchor links */
 }
 
 body {
@@ -19,15 +18,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
+/* ===== Utility: Case study images ===== */
 .case-img {
   @apply rounded-[16px] overflow-hidden border border-slate-200/70 shadow-sm bg-white;
 }
 
-:root { --anchor-offset: 7.5rem; } /* tweak between 7–8.5rem if needed */
 
+:root { --anchor-offset: 7.5rem; }
 @media (min-width: 768px) {
   :root { --anchor-offset: 8.5rem; }
 }
+section[id], div[id], article[id] {
+  scroll-margin-top: var(--anchor-offset);
+}
 
-/* Any element with an id will offset when scrolled to via #hash */
-section[id], div[id], article[id] { scroll-margin-top: var(--anchor-offset); }
+html {
+  scroll-behavior: smooth;
+}
