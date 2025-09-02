@@ -1,12 +1,15 @@
 import { ArrowLeft, Briefcase, Smartphone, Clock } from "lucide-react";
 import Link from "next/link";
+import FloatingNav from "./FloatingNav";
 
 // reuse AccessMuse tint so the look matches
 const SIENNA_DARK = "#8A2E10";
 
 export default function Page() {
   return (
-    <main className="pb-28">{/* no lg:pl-[260px] for now */}      
+    <main className="pb-28 lg:pl-[260px]">  
+
+<FloatingNav />
 
       {/* ---- HERO (same structure as AccessMuse) ---- */}
       <section
@@ -194,8 +197,15 @@ export default function Page() {
 
 
 {/* ====================== STYLES — MATERIAL COLOUR SYSTEM ====================== */}
-<section id="styles" data-label="Styles" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-16">
-  <H2>Styles 🎨 — Material 3 Colour System</H2>
+<section id="styles-root" data-label="Styles" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-16">
+  <div id="styles-color" />
+  <H2>Styles 🎨</H2>
+  <br></br>
+
+<h3 className="text-left text-[20px] md:text-[20px] font-semibold text-slate-900">
+    Material 3 Colour System
+  </h3>
+
   <Lead>
     I treated KOI like a <span className="font-semibold">spec lab</span> — read the Material&nbsp;3 anatomy,
     recreated with precision, and applied it to real UI. I started with roles
@@ -205,7 +215,7 @@ export default function Page() {
 {/* — Material Colour System + Ukiyo-e reference — */}
 <div className="mt-10 grid md:grid-cols-[minmax(0,1fr)_max-content] gap-8 md:gap-16 items-start">
   <div>
-    <H3>Material Colour System</H3>
+    <H3>Picking Colour Theme</H3>
     <P>
       I explored the <span className="font-medium">Material 3 Theme Builder</span> to understand how tokens & roles
       map across themes. It’s powerful, but the large style set can slow early exploration, so for this phase
@@ -321,9 +331,9 @@ export default function Page() {
 
 {/* ====================== TYPOGRAPHY SYSTEM ====================== */}
 <section id="typography" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-14">
-  <h2 className="text-center text-[28px] md:text-[34px] font-semibold text-slate-900">
+  <h3 className="text-left text-[20px] md:text-[20px] font-semibold text-slate-900">
     Typography System
-  </h2>
+  </h3>
 
   <p className="mt-4 text-[16px] md:text-[17px] leading-8 text-slate-800 text-center md:text-left">
     I followed Material’s typography guide and used the recommended values directly — including font sizes, weights,
@@ -438,7 +448,7 @@ export default function Page() {
 
 {/* ====================== ELEVATION ====================== */}
 <section id="elevation" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-14">
-  <h2 className="text-[28px] md:text-[34px] font-semibold text-slate-900">Elevation</h2>
+  <h3 className="text-left text-[20px] md:text-[20px] font-semibold text-slate-900">Elevation</h3>
   <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
     Depth follows Material’s 0–5 dp guidance. <span className="font-medium">0–3 dp</span> for
     resting surfaces; <span className="font-medium">4–5 dp</span> for interaction states.
@@ -920,10 +930,17 @@ export default function Page() {
     />
   </div>
 
+
+
+<br></br>
+
+
+
   {/* Text field components */}
-  <h3 className="mt-12 text-[20px] md:text-[22px] font-semibold text-slate-900">
+  <div id="auth-text-fields" />
+  <h2 className="mt-12 text-[28px] md:text-[28px] font-semibold text-slate-900">
     Text Field Components
-  </h3>
+  </h2>
 
   <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700 max-w-[900px]">
     For the form elements, I used <span className="font-medium">Material&nbsp;3’s outlined text fields</span>

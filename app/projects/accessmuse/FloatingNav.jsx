@@ -14,11 +14,11 @@ const SECTIONS = [
   },
 
   { id: 'paper-prototypes', label: 'Paper Prototypes' },
-  { id: 'mid-fidelity', label: 'Mid‑Fidelity' },
+  { id: 'mid-fidelity', label: 'Mid-Fidelity' },
 
   {
     id: 'hi-fi',
-    label: 'Hi‑Fidelity',
+    label: 'Hi-Fidelity',
     children: [
       { id: 'hi-ios',  label: 'iOS Mobile Screens' },
       { id: 'hi-web',  label: 'Web Screen' },
@@ -106,10 +106,7 @@ export default function FloatingNav() {
 
         setActive(id);
       },
-      {
-        rootMargin: '-35% 0px -60% 0px',
-        threshold: 0,
-      }
+      { rootMargin: '-35% 0px -60% 0px', threshold: 0 }
     );
 
     allIds.forEach((id) => {
@@ -126,9 +123,17 @@ export default function FloatingNav() {
     const el = document.getElementById(id);
     if (!el) return;
     history.pushState(null, '', `#${id}`);
-    setActive(id);   // immediate visual feedback
+    setActive(id);   // immediate feedback
     lockFor(800);
     el.scrollIntoView({ behavior: 'auto', block: 'start' });
+  };
+
+  // Back to top — always visible, outlined style
+  const toTop = (e) => {
+    e.preventDefault();
+    lockFor(600);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', window.location.pathname);
   };
 
   return (
@@ -136,7 +141,6 @@ export default function FloatingNav() {
       <ul className="space-y-2">
         {SECTIONS.map(({ id, label, children }) => (
           <li key={id}>
-            {/* Parent: only highlight if the parent itself is the active id */}
             <a
               href={`#${id}`}
               onClick={(e) => go(e, id)}
@@ -169,6 +173,17 @@ export default function FloatingNav() {
           </li>
         ))}
       </ul>
+
+      {/* constant outlined Back to top */}
+      <div className="mt-4 pt-4 border-t border-slate-200">
+        <button
+          onClick={toTop}
+          className="w-full rounded-[12px] border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300/60"
+          aria-label="Back to top"
+        >
+          Back to top ↑
+        </button>
+      </div>
     </nav>
   );
 }
