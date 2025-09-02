@@ -782,149 +782,374 @@ export default function Page() {
     Product Page 🛍️
   </h2>
 
-  {/* Hi-Fi video (use mp4 if possible) */}
+  {/* Hi-Fi video (local mp4 preferred) */}
   <div className="mt-6 flex justify-center">
-    {/* Prefer: local mp4 for reliability */}
-    {/* <video src="/koi/product-hifi.mp4" controls playsInline muted className="block w-full max-w-4xl rounded-2xl shadow-xl" /> */}
-
-    {/* If you must use Drive, use preview embed (replace ID) */}
-    <div className="w-full max-w-4xl">
-      <div className="relative w-full overflow-hidden rounded-2xl ring-1 ring-slate-200 bg-white" style={{paddingTop:"56.25%"}}>
-        <iframe
-          src="https://drive.google.com/file/d/1VVvKb1LqUMuuyFvIQBcyrsTYp3AoAkb0/preview"
-          allow="autoplay"
-          className="absolute inset-0 h-full w-full"
-          title="KOI — Product Page Hi-Fi"
-        />
-      </div>
+    <div className="rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
+      <video
+        src="/koi/product-section.mp4"
+        controls
+        playsInline
+        className="block w-full max-w-4xl h-auto"
+        aria-label="KOI — Product page hi-fi prototype"
+      />
     </div>
   </div>
 
-  {/* Lead */}
-  <p className="mt-8 text-left text-[15px] md:text-[16px] leading-7 text-slate-700">
-    Small interactions add up fast on PDPs. I kept flows snappy, reduced needless clicks,
-    and used Material&nbsp;3 patterns for predictable behavior.
-  </p>
+  {/* breathing room after video */}
+  <div className="mt-24" />
 
   {/* ---------- Breadcrumbs ---------- */}
-  <div className="mt-12 grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">Breadcrumbs</h3>
-      <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
-        Added on web for clear orientation and easy back-navigation. On mobile (like AccessMuse),
-        breadcrumbs can be optional because we reduce steps overall.
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {["One-click back","Scanable path","Web-first affordance"].map(t => (
-          <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] text-slate-700">{t}</span>
-        ))}
-      </div>
+    <div className="mt-12">
+    <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">Breadcrumbs</h3>
+    <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
+        <span className="font-medium">Non-negotiable on web.</span> Breadcrumbs give clear
+        orientation and an always-visible path back. They reduce uncertainty, prevent getting
+        lost, and make it obvious where the user is at any moment.
+    </p>
     </div>
 
-    <div className="justify-self-start md:justify-self-end w-full max-w-[420px]">
-      <div className="rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
-        <img src="/koi/breadcrumbs.png" alt="KOI breadcrumbs on product page" className="w-full h-auto" />
-      </div>
-      <p className="mt-2 text-[12px] text-slate-600 text-right">Clear, click-able path on PDP.</p>
-    </div>
-  </div>
+  {/* big gap before next topic */}
+  <div className="mt-24" />
 
   {/* ---------- Size selection (adaptive) ---------- */}
-  <div className="mt-14">
-    <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">Size Selection</h3>
-    <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700 max-w-[900px]">
-      Remove redundant taps: accessories auto-select <span className="font-medium">One Size</span>;
-      apparel exposes S–XL. A <span className="font-medium">tonal</span> confirmation button appears on selection.
+  {/* ---------- Size selection (adaptive, centered smaller) ---------- */}
+<div className="mt-14">
+  <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">Size Selection</h3>
+  <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
+    In e-commerce, <span className="font-medium">every micro-interaction adds up</span>.
+    Adding a needless step—like forcing a size when it’s obvious—creates friction at scale.
+  </p>
+  <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
+    <span className="font-medium">Adaptive approach:</span> Accessories auto-select “One Size”;
+    apparel shows S–XL and a <span className="font-medium">tonal</span> confirmation appears once chosen.
+  </p>
+
+  {/* smaller + centered with comfy gap */}
+  <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+    <Frame
+      src="/koi/size-apparel.png"
+      alt="Apparel size flow (S–XL)"
+      widthClass="max-w-[360px]"          // smaller
+      imgClass="max-h-[220px] object-contain"
+      caption="Apparel — selectable sizes (S–XL)."
+      pad
+    />
+    <Frame
+      src="/koi/size-accessory.png"
+      alt="Accessory auto One Size"
+      widthClass="max-w-[360px]"          // smaller
+      imgClass="max-h-[220px] object-contain"
+      caption="Accessories — “One Size” pre-selected."
+      pad
+    />
+  </div>
+</div>
+
+
+  <div className="mt-24" />
+
+
+    {/* ---------- Button variants (image below, medium) ---------- */}
+    <div className="mt-16">
+    <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">
+        Button Variants for Action Clarity
+    </h3>
+    <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
+        Avoid repeating the brand colour for every action. Neutral secondary buttons (greys)
+        preserve emphasis for the primary CTA and reduce visual fatigue.
     </p>
 
-    <div className="mt-8 grid md:grid-cols-2 gap-10 items-start">
-      <div className="w-full max-w-[460px]">
-        <div className="rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
-          <img src="/koi/size-apparel.png" alt="Apparel size flow (S–XL)" className="w-full h-auto" />
-        </div>
-        <p className="mt-2 text-[12px] text-slate-600 text-center">Apparel — selectable sizes (S–XL).</p>
-      </div>
-
-      <div className="w-full max-w-[460px]">
-        <div className="rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
-          <img src="/koi/size-accessory.png" alt="Accessory auto One Size" className="w-full h-auto" />
-        </div>
-        <p className="mt-2 text-[12px] text-slate-600 text-center">Accessories — “One Size” pre-selected.</p>
-      </div>
+    {/* medium, centered, below the copy */}
+    <div className="mt-8 flex justify-center">
+        <Frame
+        src="/koi/reviews-buttons.png"
+        alt="Reviews area with secondary button variants"
+        widthClass="max-w-[640px]"          // medium
+        imgClass="max-h-[320px] object-contain"
+        caption="Secondary greys keep the primary CTA distinct."
+        />
     </div>
-  </div>
-
-  {/* ---------- Button variants (hierarchy) ---------- */}
-  <div className="mt-14 grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">Button Variants for Action Clarity</h3>
-      <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
-        Avoided repeating brand colour everywhere. Used neutral secondary buttons (greys) to
-        reserve emphasis for the primary action and reduce visual fatigue.
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {["Primary for main action","Greys for secondary","Contrast = hierarchy"].map(t => (
-          <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] text-slate-700">{t}</span>
-        ))}
-      </div>
     </div>
 
-    <div className="justify-self-start md:justify-self-end w-full max-w-[460px]">
-      <div className="rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
-        <img src="/koi/reviews-buttons.png" alt="Reviews area with secondary button variants" className="w-full h-auto" />
-      </div>
-      <p className="mt-2 text-[12px] text-slate-600 text-right">Secondary greys keep the primary CTA distinct.</p>
-    </div>
-  </div>
 
-  {/* ---------- Dropdowns — component-level prototyping ---------- */}
-  <div className="mt-14 grid md:grid-cols-2 gap-10 items-start">
-    <div>
-      <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">
-        Dropdown Interaction — Component-Level Prototyping ⬇️
-      </h3>
-      <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
-        Each dropdown was prototyped as a component so states (selected, hover, switch)
-        behave correctly in context—useful for filters like <em>Highest Rating</em> or
-        <em> Only Pictures</em>.
-      </p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {["Atomic components","Real state logic","Reusable across PDP"].map(t => (
-          <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] text-slate-700">{t}</span>
-        ))}
-      </div>
+  <div className="mt-24" />
+
+    {/* ---------- Dropdown Interaction (image below, medium) ---------- */}
+    <div className="mt-16">
+    <h3 className="text-[20px] md:text-[22px] font-semibold text-slate-900">
+        Dropdown Interaction — Component-Level Prototyping
+    </h3>
+    <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700">
+        Each dropdown is a component, so selected / hover / switch states behave correctly
+        in context — useful for filters like <em>Highest Rating</em> or <em>Only Pictures</em>.
+    </p>
+
+    {/* medium, centered, below the copy */}
+    <div className="mt-8 flex justify-center">
+        <Frame
+        src="/koi/reviews-dropdown.png"
+        alt="Dropdown component states in reviews"
+        widthClass="max-w-[640px]"          // medium
+        imgClass="max-h-[300px] object-contain"
+        caption="Component-level prototype — consistent states."
+        />
+    </div>
     </div>
 
-    <div className="justify-self-start md:justify-self-end w-full max-w-[460px]">
-      <div className="rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
-        <img src="/koi/reviews-dropdown.png" alt="Dropdown component states in reviews" className="w-full h-auto" />
-      </div>
-      <p className="mt-2 text-[12px] text-slate-600 text-right">Component-level prototype — consistent states.</p>
-    </div>
-  </div>
 </section>
-
-
-
-
-<br></br>
-<br></br>
-<br></br>
 
 {/* Divider */}
 <div className="mt-10 h-px bg-slate-200/70 max-w-[900px] mx-auto" />
 
-<section className="max-w-[1100px] mx-auto px-6 md:px-10 pt-10 md:pt-12 text-center">
-  <h2 className="text-[22px] md:text-[26px] font-semibold text-slate-800">
-    Full Case Study
+
+{/* ====================== SIGN UP / SIGN IN ====================== */}
+<section id="auth" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-16">
+  <h2 className="text-left text-[28px] md:text-[34px] font-semibold text-slate-900">
+    Sign up / Sign in 📝
   </h2>
-  <p className="mt-3 text-[15px] md:text-[16px] text-slate-600">
-    Coming soon — full breakdown of KOI’s process, goals, and iterations will be live in the next few days.
+
+  {/* Hi-Fi video (prefer local MP4) */}
+  <div className="mt-6 flex justify-center">
+    <video
+      src="/koi/signup-hifi.mp4"             // put your mp4 here
+      controls
+      playsInline
+      muted
+      className="block w-full max-w-4xl rounded-2xl shadow-xl"
+      aria-label="KOI — Sign up / Sign in hi-fi prototype"
+    />
+  </div>
+
+  {/* Text field components */}
+  <h3 className="mt-12 text-[20px] md:text-[22px] font-semibold text-slate-900">
+    Text Field Components
+  </h3>
+
+  <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-700 max-w-[900px]">
+    For the form elements, I used <span className="font-medium">Material&nbsp;3’s outlined text fields</span>
+    instead of filled ones. Because the interface already carries a strong primary colour,
+    outlined fields keep the layout lighter and more balanced.
   </p>
+
+  <ul className="mt-4 list-disc pl-5 text-[15px] leading-7 text-slate-700 max-w-[900px] space-y-1">
+    <li><span className="font-medium">Outlined</span> fields feel cleaner and less visually heavy.</li>
+    <li>A working <span className="font-medium">caret</span> (blinking cursor) is shown for realistic prototyping.</li>
+    <li>Both <span className="font-medium">regular</span> and <span className="font-medium">error</span> states are included.</li>
+    <li>A subtle <span className="font-medium">cream background</span> separates the inputs from the white canvas without overwhelming it.</li>
+  </ul>
+
+
+{/* Image (outer rounded frame, inner image square, no clipping) */}
+        <div className="mt-10 flex justify-center">
+        <div className="w-full max-w-[680px] rounded-[16px] ring-1 ring-slate-200 bg-white p-4">
+            <img
+            src="/koi/tf-auth-outlined.png"
+            alt="Outlined text fields for Sign up / Sign in — regular and error states"
+            className="block w-full h-auto"  // no rounded here
+            />
+        </div>
+        </div>
+        <p className="mt-2 text-[12px] text-slate-600 text-center">
+        Outlined text fields — regular & error states with subtle cream field background.
+        </p>
+
 </section>
 
 
 
+
+{/* ====================== CHECKBOX STATES ====================== */}
+{/* ====================== CHECKBOX STATES ====================== */}
+<section id="checkbox" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-14">
+  <h2 className="text-left text-[28px] md:text-[34px] font-semibold text-slate-900">
+    Checkbox States
+  </h2>
+
+  <div className="mt-6 grid md:grid-cols-[minmax(0,1fr)_320px] gap-10 items-start">
+    {/* LEFT: copy (full width of the left column) */}
+    <div className="max-w-[720px]">
+      <p className="text-[15px] md:text-[16px] leading-7 text-slate-700">
+        For the <span className="font-medium">“Stay signed in”</span> interaction, I used
+        Material&nbsp;3’s checkbox component with all core states:
+        <span className="font-medium"> default</span>,
+        <span className="font-medium"> hover</span>, and
+        <span className="font-medium"> pressed</span> — for both
+        <span className="font-medium"> checked</span> and
+        <span className="font-medium"> unchecked</span>.
+      </p>
+
+      <p className="mt-3 text-[15px] md:text-[16px] leading-7 text-slate-800">
+        Because this is a <span className="font-medium">standalone action</span>, I intentionally
+        skipped the <span className="font-medium">indeterminate</span> state (reserved for parent–child lists).
+      </p>
+
+      {/* bullets clearly visible */}
+      <ul className="mt-5 list-disc pl-5 space-y-2 text-[15px] leading-7 text-slate-700">
+        <li>Followed Material 3 checkbox anatomy.</li>
+        <li>Used the <span className="font-medium">primary colour</span> for checked state consistency.</li>
+        <li>Added state layers for hover/pressed feedback.</li>
+        <li>Center-aligned icon for balance and clarity.</li>
+      </ul>
+    </div>
+
+    {/* RIGHT: smaller anatomy image, nudged up a touch */}
+<div className="justify-self-start md:justify-self-end md:-mt-2">
+  <figure className="w-[200px] sm:w-[220px] md:w-[240px] rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white">
+    <img
+      src="/koi/checkbox.png"
+      alt="Material 3 checkbox anatomy sketch"
+      className="w-full h-auto"
+    />
+  </figure>
+  <figcaption className="mt-2 text-right text-[12px] text-slate-600">
+    Material 3 checkbox anatomy (structure & pixel spec).
+  </figcaption>
+</div>
+  </div>
+
+  {/* BELOW: two smaller images, side-by-side, centered */}
+  <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+    <div className="w-full max-w-[380px]">
+      <figure className="rounded-[16px] ring-1 ring-slate-200 bg-white p-3">
+        <img
+          src="/koi/checkbox-states.png"     // all states image
+          alt="All checkbox states — checked/unchecked across default, hover, pressed"
+          className="block w-full h-auto max-h-[240px] object-contain"
+        />
+      </figure>
+      <p className="mt-2 text-[12px] text-slate-600 text-center">
+        All core states: default, hover, pressed — for checked & unchecked.
+      </p>
+    </div>
+
+    <div className="w-full max-w-[380px]">
+      <figure className="rounded-[16px] ring-1 ring-slate-200 bg-white p-3">
+        <img
+          src="/koi/checkbox-auth.png"       // applied in Sign up / Sign in
+          alt="Checkbox used in Sign up / Sign in form"
+          className="block w-full h-auto max-h-[240px] object-contain"
+        />
+      </figure>
+      <p className="mt-2 text-[12px] text-slate-600 text-center">
+        Applied in the Sign up / Sign in form (“Stay signed in”).
+      </p>
+    </div>
+  </div>
+</section>
+
+
+{/* Divider */}
+<div className="mt-10 h-px bg-slate-200/70 max-w-[900px] mx-auto" />
+
+{/* ====================== REFLECTIONS ====================== */}
+<section id="reflections" className="max-w-[1100px] mx-auto px-6 md:px-10 pt-16">
+  <h2 className="text-center text-[28px] md:text-[34px] font-semibold text-slate-900">
+    Learning to Build with Material 3 — Reflections
+  </h2>
+
+  {/* 3 concise cards */}
+  <div className="mt-8 grid gap-6 md:grid-cols-3">
+    {/* Getting started */}
+    <div className="rounded-2xl border border-slate-200 bg-white/70 p-6">
+      <p className="text-[13px] font-semibold text-slate-900">🚀 Getting Started</p>
+      <p className="mt-2 text-[14px] leading-7 text-slate-700">
+        The first mile was slow: learning <span className="font-medium">anatomy</span> and
+        <span className="font-medium"> colour roles</span>. Buttons took the longest. Once I moved to
+        cards, text fields and checkboxes, speed and confidence picked up.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {["Read spec → recreate", "Test states", "Apply to flows"].map((t) => (
+          <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] text-slate-700">{t}</span>
+        ))}
+      </div>
+    </div>
+
+    {/* What I learned */}
+    <div className="rounded-2xl border border-slate-200 bg-white/70 p-6">
+      <p className="text-[13px] font-semibold text-slate-900">🔍 What I Learned</p>
+      <ul className="mt-2 space-y-2 text-[14px] leading-7 text-slate-700">
+        <li>Systems ≠ parts. It’s about <span className="font-medium">clarity & flow</span>, not just components.</li>
+        <li>Tokens + states keep decisions consistent across surfaces.</li>
+        <li>Spec accuracy upfront reduces rework later.</li>
+      </ul>
+      {/* NEW: chips for consistency with the first card */}
+      <div className="mt-4 flex flex-wrap gap-2">
+        {[
+          "Systems-first",
+          "Consistency > novelty",
+          "A11y mindful",
+          "Fast adaptation",
+         
+        ].map((t) => (
+          <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] text-slate-700">{t}</span>
+        ))}
+      </div>
+    </div>
+
+    {/* Project focus */}
+    <div className="rounded-2xl border border-slate-200 bg-white/70 p-6">
+      <p className="text-[13px] font-semibold text-slate-900">🎯 Project Focus</p>
+      <p className="mt-2 text-[14px] leading-7 text-slate-700">
+        Explore <span className="font-medium">Material 3</span> and show <span className="font-medium">Figma prototyping</span> depth,
+        while learning how design decisions cascade across components.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {["Spec parity", "Accessible contrast", "Component states"].map((t) => (
+          <span key={t} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[12px] text-slate-700">{t}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Quote */}
+  <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50/60 p-5">
+    <p className="text-[14px] leading-7 text-slate-800 italic">
+      “Getting hands-on with Material 3 helped me connect the dots between components, structure, and interaction.
+      I’m still learning — but I understand the foundations and where to go deeper.”
+    </p>
+  </div>
+
+  {/* Mentorship / guidance ask */}
+  <div className="mt-8 grid gap-6 md:grid-cols-2 items-start">
+    <div className="rounded-2xl border border-slate-200 bg-white/70 p-6">
+      <p className="text-[13px] font-semibold text-slate-900">🧭 Where I’d Love Guidance</p>
+      <ul className="mt-3 list-disc pl-5 space-y-2 text-[14px] leading-7 text-slate-700">
+        <li>Best practice for mapping <span className="font-medium">Figma Variables → tokens</span> (light/dark, roles, states).</li>
+        <li>Motion tokens: <span className="font-medium">durations/easing</span> that align with M3 across surfaces.</li>
+        <li>Scaling component libraries for <span className="font-medium">large systems</span> without bloat (slots/variants, docs).</li>
+        <li>dp ↔ px conversion across platforms — practical guidance to stay consistent.</li>
+        <li>Practical dev handoff—mapping to M3 libraries (e.g., MUI) cleanly.</li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-slate-200 bg-white/70 p-6">
+      <p className="text-[13px] font-semibold text-slate-900">🛠️ What’s Next</p>
+      <ul className="mt-3 list-disc pl-5 space-y-2 text-[14px] leading-7 text-slate-700">
+        <li>Introduce variables for colour roles and type across themes.</li>
+        <li>Harden component docs (usage rules & edge cases).</li>
+        <li>Broaden flows (cart/checkout) with the same system discipline.</li>
+      </ul>
+      <p className="mt-4 text-[14px] leading-7 text-slate-700">
+        If you’ve shipped Material at scale, I’d love a quick review or a couple of pointers.
+      </p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <a href="mailto:shreyavalgot8@gmail.com" className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] font-medium text-slate-800 hover:border-slate-400">
+          Share feedback
+        </a>
+        <a href="/#contact" className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-[13px] text-slate-700 hover:border-slate-400">
+          Coffee chat ☕
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<br></br>
+<br></br>
+<br></br>
 
 
 
@@ -1209,5 +1434,29 @@ function FramedImage({ src, alt, className = "" }) {
     <div className={`rounded-[16px] overflow-hidden ring-1 ring-slate-200 bg-white ${className}`}>
       <img src={src} alt={alt} className="block w-full h-auto" />
     </div>
+  );
+}
+
+
+{/* ---------- shared helper ---------- */}
+function Frame({
+  src,
+  alt,
+  caption,
+  widthClass = "max-w-[480px]",
+  imgClass = "",
+  pad = false,
+}) {
+  return (
+    <figure className={`${widthClass} w-full`}>
+      <div className={`rounded-[16px] ring-1 ring-slate-200 bg-white ${pad ? "p-3" : ""}`}>
+        <img src={src} alt={alt} className={`w-full h-auto ${imgClass}`} />
+      </div>
+      {caption && (
+        <figcaption className="mt-2 text-[12px] text-slate-600 text-center">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
   );
 }
